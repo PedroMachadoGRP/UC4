@@ -25,6 +25,11 @@ class Academia {
         treinador.adicionarAlunos(aluno)
     }
 }
+enum Plano{
+    Semanal = "Semanal",
+    Mensal = "Mensal",
+    Anual = "Anual"
+}
 class Sala{
     numero : number = 0
     local : string = ""
@@ -74,11 +79,13 @@ class Aluno{
     idade : number = 0
     cpf : string = ""
     treinos : Treino[] =[]
+    plano : Plano
 
-    constructor(nome : string,idade : number,cpf : string){
+    constructor(nome : string,idade : number,cpf : string,plano : Plano){
         this.nome = nome
         this.idade = idade
         this.cpf = cpf
+        this.plano = plano
     }
     adicionarTreino(treino : Treino){
         this.treinos.push(treino)
@@ -102,11 +109,12 @@ class Instrutor{
 
 
 let academia = new Academia()
-let aluno_1 = new Aluno("Arlo",20,"12345")
+let aluno_1 = new Aluno("Arlo",20,"12345",Plano.Semanal)
 let instrutor_1 = new Instrutor("Arnald","Natação")
 let sala_1 = new Sala(121,"Fundos")
 let aparelho_1 = new Aparelho("Esteira","Correr")
 academia.nome = "Power Gym"
+
 academia.adicionarAluno(aluno_1)
 academia.adicionarInstrutor(instrutor_1)
 academia.adicionarSala(sala_1)
